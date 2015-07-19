@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Research- Assignment 1"
-author: "Micaela Christopher"
+author: "Micaela"
 date: "July 18, 2015"
 output: html_document
 ---
@@ -18,7 +18,7 @@ unlink(temp)
 ```
 
 ```
-## [1] "Sun Jul 19 02:39:29 2015"
+## [1] "Sun Jul 19 03:57:44 2015"
 ```
 
 #What is mean total number of steps taken per day?
@@ -39,6 +39,8 @@ hist(steps_day, main="Steps Taken per Day",xlab="Steps/Day")
 mean_steps_day <- mean(steps_day,na.rm=TRUE)
 median_steps_day <- median(steps_day,na.rm=TRUE)
 ```
+The mean number of steps taken per day is 9354.23.
+The median number of steps taken per day is 1.0395 &times; 10<sup>4</sup>.
 
 #What is the average daily pattern?
 
@@ -61,7 +63,7 @@ max_steps_interval[,1]
 ## [1] 835
 ```
 
-#Impute missing data
+#Impute missing data by replacing missing values with the mean number of steps taken for that interval
 
 ```r
 sum(is.na(data$steps))
@@ -98,6 +100,9 @@ hist(steps_day_nomiss, main="Steps Taken per Day with Missing Data Imputed",xlab
 mean_steps_day_nomiss <- mean(steps_day_nomiss)
 median_steps_day_nomiss <- median(steps_day_nomiss)
 ```
+
+The mean number of steps taken per day in the imputed data is 1.0766189 &times; 10<sup>4</sup>.
+The median number of steps taken per day in the imputed data is 1.0766189 &times; 10<sup>4</sup>.
 
 Compare imputed mean and median to original mean and median:
 1.076619 &times; 10<sup>4</sup> and 1.076619 &times; 10<sup>4</sup> are larger than 9354.23 and 1.0395 &times; 10<sup>4</sup>.
