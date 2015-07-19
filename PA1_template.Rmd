@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Research- Assignment 1"
-author: "Micaela Christopher"
+author: "Micaela"
 date: "July 18, 2015"
 output: html_document
 ---
@@ -29,6 +29,8 @@ hist(steps_day, main="Steps Taken per Day",xlab="Steps/Day")
 mean_steps_day <- mean(steps_day,na.rm=TRUE)
 median_steps_day <- median(steps_day,na.rm=TRUE)
 ```
+The mean number of steps taken per day is `r round(mean_steps_day,2)`.
+The median number of steps taken per day is `r round(median_steps_day,2)`.
 
 #What is the average daily pattern?
 ```{r calculate and plot the average number of steps per interval,echo=TRUE}
@@ -41,7 +43,7 @@ max_steps_interval <- average_interval[average_interval$Average==max(average_int
 max_steps_interval[,1]
 ```
 
-#Impute missing data
+#Impute missing data by replacing missing values with the mean number of steps taken for that interval
 ```{r calculate the number of missing values in the dataset,echo=TRUE}
 sum(is.na(data$steps))
 ```
@@ -68,6 +70,9 @@ hist(steps_day_nomiss, main="Steps Taken per Day with Missing Data Imputed",xlab
 mean_steps_day_nomiss <- mean(steps_day_nomiss)
 median_steps_day_nomiss <- median(steps_day_nomiss)
 ```
+
+The mean number of steps taken per day in the imputed data is `r mean_steps_day_nomiss`.
+The median number of steps taken per day in the imputed data is `r median_steps_day_nomiss`.
 
 Compare imputed mean and median to original mean and median:
 `r round(mean_steps_day_nomiss,digits=2)` and `r round(median_steps_day_nomiss,digits=2)` are larger than `r round(mean_steps_day,digits=2)` and `r round(median_steps_day,digits=2)`.
